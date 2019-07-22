@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 const UseDropDown = (label, defaultState, options) => {
+  //adding a hook
   const [state, setState] = useState(defaultState);
-  const id = `use-drop-${label}`;
 
   const dropDown = () => {
     return (
@@ -22,7 +22,8 @@ const UseDropDown = (label, defaultState, options) => {
       </label>
     );
   };
-  //Returning an array from Component (state, JSX comp, function)
+  //instead of return only the component
+  //here we are returning an array with (state, JSX comp, function set)
   return [state, dropDown, setState];
 };
 export default UseDropDown;

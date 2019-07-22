@@ -21,12 +21,13 @@ const App = () => {
   // };
 
   return (
-    <div>
-      <SearchParams />
-      {/* <Pet name="Luna" animal="dog" breed="golden retriever" />
-      <Pet name="Peter" animal="dog" breed="golden retriever" />
-      <Pet name="Doggy" animal="dog" breed="golden retriever" /> */}
-    </div>
+    <React.StrictMode>
+      <div>
+        <h1>Adopt-me</h1>
+        <SearchParams />
+        {/* <Pet name="Luna" animal="dog" breed="golden retriever" />*/}
+      </div>
+    </React.StrictMode>
   );
 };
 
