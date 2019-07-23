@@ -1,13 +1,25 @@
 import React from "react";
+import Pet from "./Pet";
 
 const Result = ({ pets }) => {
   return (
-    <ul>
-      {pets.map(pet => {
-        return <li key={pet}>{pet}</li>;
-      })}
-    </ul>
+    <div className="search">
+      {!pets.length ? (
+        <h1>No pets found</h1>
+      ) : (
+        pets.map(pet => (
+          <Pet
+            id={pet.id}
+            key={pet.id}
+            animal={pet.type}
+            name={pet.name}
+            breed={pet.breeds.primary}
+            media={pet.photos}
+            location={`${pet.contact.address.city}, ${pet.contact.address.state}`}
+          ></Pet>
+        ))
+      )}
+    </div>
   );
 };
-
 export default Result;

@@ -21,6 +21,7 @@ const SearchParams = () => {
   );
 
   async function reqPets() {
+    //making the request on method pet.animals
     const { animals } = await pet.animals({
       location,
       breed,
@@ -72,7 +73,7 @@ const SearchParams = () => {
         <button>Submit</button>
       </form>
 
-      {/* <Results pets={pets} /> */}
+      <Results pets={pets} />
     </div>
   );
 };
