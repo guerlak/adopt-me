@@ -4,6 +4,7 @@ import { render } from "react-dom";
 
 import SearchParams from "./SearchParams";
 import Details from "./Details";
+import DetailsClass from "./DetailsClass";
 
 const App = () => {
   return (
@@ -14,7 +15,9 @@ const App = () => {
         </header>
         <Router>
           <SearchParams path={"/"} />
-          <Details path={"/details/:id"} />
+          {/* <Details path={"/details/:id"} /> */}
+          {/* //param ID was sent to props */}
+          <DetailsClass path={"/details/:id"} />
         </Router>
       </div>
     </React.StrictMode>
