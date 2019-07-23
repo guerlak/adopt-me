@@ -15,7 +15,8 @@ class DetailsClass extends React.Component {
       description: "",
       media: "",
       breed: "",
-      url: ""
+      url: "",
+      showModal: false
     };
   }
 
@@ -35,7 +36,8 @@ class DetailsClass extends React.Component {
           media: animal.photos,
           breed: animal.breeds.primary,
           url: animal.url,
-          loading: false
+          loading: false,
+          showModal: false
         });
       })
       .catch(err => this.setState({ error: err }));
@@ -46,7 +48,16 @@ class DetailsClass extends React.Component {
       return <h1>...loading</h1>;
     }
 
-    const { animal, breed, location, description, name, media } = this.state;
+    const {
+      animal,
+      breed,
+      location,
+      description,
+      name,
+      media,
+      url,
+      showModal
+    } = this.state;
 
     return (
       <div className="details">
