@@ -2,17 +2,6 @@ import React from "react";
 import { Link } from "@reach/router";
 
 const Pet = ({ name, animal, breed, media, id, location }) => {
-  //   return React.createElement(
-  //     "div",
-  //     {},
-  //     //Element type, id, child
-  //     [
-  //       React.createElement("h1", {}, name),
-  //       React.createElement("h2", {}, animal),
-  //       React.createElement("h2", {}, breed)
-  //     ]
-  //   );
-
   let hero = "http://placecorgi.com/300/300";
   if (media.length) {
     hero = media[0].small;
