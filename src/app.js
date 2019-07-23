@@ -1,11 +1,12 @@
 import React from "react";
+import { Router, Link } from "@reach/router";
 import { render } from "react-dom";
 
 import SearchParams from "./SearchParams";
+import Details from "./Details";
 
-import MyDropDown from "./myDrop/MyDropDown";
-
-const arrayVinhos = ["Casal Garcia", "Aveleda", "Torres"];
+// import MyDropDown from "./myDrop/MyDropDown";
+// const arrayVinhos = ["Casal Garcia", "Aveleda", "Torres"];
 
 const App = () => {
   //   return React.createElement("div", { id: "pets" }, [
@@ -35,12 +36,15 @@ const App = () => {
   return (
     <React.StrictMode>
       <div>
-        <h1>Adopt-me</h1>
-        <SearchParams />
-        {/* <Pet name="Luna" animal="dog" breed="golden retriever" />*/}
+        <header>
+          <Link to="/">Adopt-me</Link>
+        </header>
+        <Router>
+          <SearchParams path={"/"} />
+          <Details path={"/details/:id"} />
+        </Router>
       </div>
     </React.StrictMode>
   );
 };
-
 render(<App />, document.getElementById("root"));
