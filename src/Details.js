@@ -1,4 +1,5 @@
 import React from "react";
+import ErrorBoundary from "./ErrorBondary";
 
 const Details = props => {
   return (
@@ -8,5 +9,10 @@ const Details = props => {
     </pre>
   );
 };
-
-export default Details;
+export default function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  );
+}

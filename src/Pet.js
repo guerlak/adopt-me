@@ -7,6 +7,7 @@ const Pet = ({ name, animal, breed, media, id, location }) => {
     hero = media[0].small;
   }
   return (
+    // must use Link to keep the global context
     <Link to={`/details/${id}`} className="pet">
       <div className="image-container">
         <img src={hero} alt={name} />
