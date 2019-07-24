@@ -3,6 +3,8 @@ import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBondary";
 import ThemeContext from "./ThemeContext";
+import Modal from "./Modal";
+import { Redirect, navigate } from "@reach/router";
 
 class DetailsClass extends React.Component {
   constructor(props) {
@@ -18,10 +20,8 @@ class DetailsClass extends React.Component {
       url: "",
       showModal: false
     };
-  }
-
-  pressMe(e) {
-    console.log(e.target);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.adopt = this.adopt.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +41,16 @@ class DetailsClass extends React.Component {
         });
       })
       .catch(err => this.setState({ error: err }));
+  }
+
+  adopt() {
+    console.log("press");
+    <Redirect to="/" />;
+    return null;
+  }
+
+  toggleModal() {
+    this.setState({ showModal: !this.state.showModal });
   }
 
   render() {
@@ -66,15 +76,27 @@ class DetailsClass extends React.Component {
           <h1>{name}</h1>
           <h2>{`${animal} — ${breed} — ${location}`}</h2>
         </div>
-        {/* Geting the  global context inside the class */}
+        {/* Getting the  global context API inside the class */}
         <ThemeContext.Consumer>
           {([theme]) => (
-            <button style={{ backgroundColor: theme }} onClick={this.pressMe}>
+            <button
+              style={{ backgroundColor: theme }}
+              onClick={this.toggleModal}
+            >
               Adopt {name}
             </button>
           )}
         </ThemeContext.Consumer>
         <p>{description}</p>
+        {showModal ? (
+          <Modal>
+            <h1>Would you like to adopt {name}? </h1>
+            <div className="buttons">
+              <button onClick={() => navigate(this.state.url)}>Yes</button>
+              <button onClick={this.toggleModal}>No</button>
+            </div>
+          </Modal>
+        ) : null}
       </div>
     );
   }

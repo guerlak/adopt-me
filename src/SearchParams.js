@@ -15,6 +15,8 @@ const SearchParams = () => {
   //global persistence API
   const [theme, setTheme] = useContext(ThemeContext);
 
+  const colorTheme = useContext(ThemeContext)[0];
+
   //Dropdown generator with hooks (current state, JSX component, function set)
   const [animal, AnimalDropDown] = UseDropDown("Animal", "dog", ANIMALS);
   const [breed, BreedDropDown, setBreed] = UseDropDown(
@@ -75,7 +77,7 @@ const SearchParams = () => {
 
         <label htmlFor="theme">
           <select
-            value={[theme]}
+            value={colorTheme}
             onChange={e => setTheme(e.target.value)}
             onBlur={e => setTheme(e.target.value)}
           >

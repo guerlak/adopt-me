@@ -23,6 +23,7 @@ const App = () => {
             {/* //param ID was sent to props */}
             <DetailsClass path={"/details/:id"} />
           </Router>
+          <div id="modal"></div>
         </div>
       </React.StrictMode>
     </ThemeContext.Provider>
