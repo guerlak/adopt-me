@@ -3,6 +3,7 @@ import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBondary";
 import ThemeContext from "./ThemeContext";
+import UserContext from "./UserContext";
 import Modal from "./Modal";
 import { Redirect, navigate } from "@reach/router";
 
@@ -21,7 +22,6 @@ class DetailsClass extends React.Component {
       showModal: false
     };
     this.toggleModal = this.toggleModal.bind(this);
-    this.adopt = this.adopt.bind(this);
   }
 
   componentDidMount() {
@@ -91,6 +91,14 @@ class DetailsClass extends React.Component {
             </div>
           </Modal>
         ) : null}
+
+        <UserContext.Consumer>
+          {([user]) => (
+            <p>
+              <b>User logged:</b> {user.email}
+            </p>
+          )}
+        </UserContext.Consumer>
       </div>
     );
   }

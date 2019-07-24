@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Pet from "./Pet";
 
 const Result = ({ pets, submitPress }) => {
   const loading = "...loading";
-
-  console.log(pets);
 
   return (
     <div className="search">

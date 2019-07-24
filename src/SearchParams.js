@@ -93,7 +93,7 @@ const SearchParams = () => {
 
         <button
           onClick={() => setSubmitPress(true)}
-          style={{ backgroundColor: theme }}
+          style={{ backgroundColor: colorTheme }}
         >
           Submit
         </button>
