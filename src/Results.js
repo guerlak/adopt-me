@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Pet from "./Pet";
 
-const Result = ({ pets }) => {
+const Result = ({ pets, submitPress }) => {
+  const loading = "...loading";
+
+  console.log(pets);
+
   return (
     <div className="search">
-      {!pets.length ? (
-        <h1>No pets found</h1>
-      ) : (
+      {!submitPress ? <h1>Click to search...</h1> : null}
+      {submitPress && !pets.length ? <h1>{loading}</h1> : null}
+      {pets.length && pets !== "error" ? (
         pets.map(pet => (
           <Pet
             id={pet.id}
@@ -18,7 +22,9 @@ const Result = ({ pets }) => {
             location={`${pet.contact.address.city}, ${pet.contact.address.state}`}
           ></Pet>
         ))
-      )}
+      ) : pets == "error" ? (
+        <h1>Server error, try later.</h1>
+      ) : null}
     </div>
   );
 };

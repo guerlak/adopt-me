@@ -12,9 +12,9 @@ const SearchParams = () => {
   const [location, setLocation] = useState("Seattle, WA");
   const [breeds, setBreeds] = useState([]);
   const [pets, setPets] = useState([]);
+  const [submitPress, setSubmitPress] = useState(false);
   //global persistence API
   const [theme, setTheme] = useContext(ThemeContext);
-
   const colorTheme = useContext(ThemeContext)[0];
 
   //Dropdown generator with hooks (current state, JSX component, function set)
@@ -35,6 +35,9 @@ const SearchParams = () => {
 
     console.log(animals);
 
+    if (animals == undefined) {
+      return setPets("error");
+    }
     setPets(animals || []);
   }
 
@@ -88,9 +91,14 @@ const SearchParams = () => {
           </select>
         </label>
 
-        <button style={{ backgroundColor: theme }}>Submit</button>
+        <button
+          onClick={() => setSubmitPress(true)}
+          style={{ backgroundColor: theme }}
+        >
+          Submit
+        </button>
       </form>
-      <Results pets={pets} />
+      <Results pets={pets} submitPress={submitPress} />
     </div>
   );
 };

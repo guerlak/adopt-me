@@ -43,12 +43,6 @@ class DetailsClass extends React.Component {
       .catch(err => this.setState({ error: err }));
   }
 
-  adopt() {
-    console.log("press");
-    <Redirect to="/" />;
-    return null;
-  }
-
   toggleModal() {
     this.setState({ showModal: !this.state.showModal });
   }
